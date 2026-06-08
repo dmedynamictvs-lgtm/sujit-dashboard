@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic TVS - Service Centre</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple: #7B2D8B;
+    --purple-light: #f0e6f3;
+    --purple-mid: #9c3daf;
+    --red: #e63030;
+    --blue: #1a3fa3;
+    --text: #222;
+    --text-muted: #888;
+    --white: #fff;
+    --border: #e8e0ec;
+    --shadow: 0 8px 32px rgba(123,45,139,0.13);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans', sans-serif;
+    background: #f4edf7;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .card {
+    background: var(--white);
+    width: 100%;
+    max-width: 420px;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin: 0 auto;
+  }
+
+  /* Header Banner */
+  .banner {
+    width: 100%;
+    height: 130px;
+    background: linear-gradient(120deg, #7fd6f0 0%, #b5e8d5 30%, #f7b6d2 65%, #f9c6e0 100%);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 0;
+  }
+
+  .logo-circle {
+    width: 90px;
+    height: 90px;
+    background: var(--white);
+    border-radius: 50%;
+    border: 3px solid #f0e6f3;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+  }
+
+  .logo-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .logo-text {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--blue);
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+
+  .logo-horse {
+    font-size: 18px;
+    color: var(--red);
+    line-height: 1;
+  }
+
+  .logo-swoosh {
+    width: 60px;
+    height: 12px;
+    background: linear-gradient(90deg, var(--red) 0%, var(--blue) 100%);
+    border-radius: 50%;
+    margin-top: 2px;
+    clip-path: ellipse(30px 7px at 50% 80%);
+  }
+
+  /* Body */
+  .body {
+    padding: 60px 24px 30px;
+    text-align: center;
+  }
+
+  .label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .company-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  .tagline {
+    font-size: 13.5px;
+    color: #888;
+    line-height: 1.6;
+    max-width: 280px;
+    margin: 0 auto 22px;
+  }
+
+  /* Add Contact Button */
+  .btn-add {
+    background: var(--purple);
+    color: var(--white);
+    border: none;
+    border-radius: 50px;
+    padding: 14px 44px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Noto Sans', sans-serif;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 18px rgba(123,45,139,0.28);
+    display: inline-block;
+    margin-bottom: 22px;
+  }
+
+  .btn-add:hover {
+    background: var(--purple-mid);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(123,45,139,0.36);
+  }
+
+  .btn-add:active {
+    transform: scale(0.97);
+  }
+
+  /* Icons row */
+  .icons-row {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-bottom: 24px;
+  }
+
+  .icon-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    background: var(--purple-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, border 0.2s;
+    text-decoration: none;
+  }
+
+  .icon-btn:hover {
+    background: var(--purple);
+    border-color: var(--purple);
+  }
+
+  .icon-btn:hover svg { stroke: white; }
+
+  .icon-btn svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--purple);
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.2s;
+  }
+
+  /* Contact List */
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 0 10px;
+  }
+
+  .contact-group {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: background 0.15s;
+    text-decoration: none;
+  }
+
+  .contact-item:last-child {
+    border-bottom: none;
+  }
+
+  .contact-item:hover {
+    background: var(--purple-light);
+  }
+
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--purple-light);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--purple);
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .contact-info {
+    text-align: left;
+  }
+
+  .contact-role {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    color: var(--purple);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  .contact-number {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 0.5px;
+  }
+
+  .contact-email {
+    font-size: 13px;
+    color: var(--text);
+  }
+
+  .contact-company {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  /* Toast */
+  .toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: var(--purple);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+    transition: transform 0.4s cubic-bezier(.34,1.56,.64,1), opacity 0.3s;
+    opacity: 0;
+    z-index: 999;
+    white-space: nowrap;
+  }
+
+  .toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+
+  @media (max-width: 480px) {
+    .card { border-radius: 0; min-height: 100vh; }
+    body { background: white; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <!-- Colorful Banner -->
+  <div class="banner">
+    <div class="logo-circle">
+      <div class="logo-inner">
+        <span class="logo-horse">🐎</span>
+        <span class="logo-text">DYNAMIC TVS</span>
+        <div class="logo-swoosh"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="body">
+    <p class="label">Service Centre</p>
+    <h1 class="company-name">DYNAMIC TVS</h1>
+    <p class="tagline">More than ten years of experience working for the most important companies</p>
+
+    <!-- Add Contact Button -->
+    <button class="btn-add" onclick="saveAllContacts()">add contact</button>
+
+    <!-- Phone & Email icons -->
+    <div class="icons-row">
+      <a class="icon-btn" href="tel:7290047910" title="Call">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 2.11 5.18 2 2 0 0 1 4.09 3h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 10.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+      <a class="icon-btn" href="mailto:sm.dynamictvs@gmail.com" title="Email">
+        <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+      </a>
+    </div>
+
+    <!-- Contact List -->
+    <div class="contact-list">
+      <!-- Phone contacts group -->
+      <div class="contact-group">
+        <a class="contact-item" href="tel:7290047910">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18" stroke-width="2"/></svg>
+          </div>
+          <div class="contact-info">
+            <div class="contact-role">TVS Service Advisor (Sujit)</div>
+            <div class="contact-number">7290047910</div>
+          </div>
+        </a>
+        <a class="contact-item" href="tel:7042337745">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18" stroke-width="2"/></svg>
+          </div>
+          <div class="contact-info">
+            <div class="contact-role">CRM</div>
+            <div class="contact-number">7042337745</div>
+          </div>
+        </a>
+        <a class="contact-item" href="tel:7290011222">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18" stroke-width="2"/></svg>
+          </div>
+          <div class="contact-info">
+            <div class="contact-role">Workshop Manager</div>
+            <div class="contact-number">7290011222</div>
+          </div>
+        </a>
+        <a class="contact-item" href="tel:9582866060">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18" stroke-width="2"/></svg>
+          </div>
+          <div class="contact-info">
+            <div class="contact-role">GM</div>
+            <div class="contact-number">9582866060</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Email -->
+      <div class="contact-group">
+        <a class="contact-item" href="mailto:sm.dynamictvs@gmail.com">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+          </div>
+          <div class="contact-info">
+            <div class="contact-role">Email</div>
+            <div class="contact-email">sm.dynamictvs@gmail.com</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Company -->
+      <div class="contact-group">
+        <div class="contact-item" style="cursor:default;">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          </div>
+          <div class="contact-info">
+            <div class="contact-company">DYNAMIC MOTORS PVT LTD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">✅ Contacts saved to your phone!</div>
+
+<script>
+const contacts = [
+  {
+    name: "TVS Service Advisor Sujit",
+    phone: "7290047910",
+    email: "",
+    org: "Dynamic Motors Pvt Ltd"
+  },
+  {
+    name: "TVS CRM",
+    phone: "7042337745",
+    email: "",
+    org: "Dynamic Motors Pvt Ltd"
+  },
+  {
+    name: "TVS Workshop Manager",
+    phone: "7290011222",
+    email: "",
+    org: "Dynamic Motors Pvt Ltd"
+  },
+  {
+    name: "TVS GM Service",
+    phone: "9582866060",
+    email: "",
+    org: "Dynamic Motors Pvt Ltd"
+  }
+];
+
+function makeVCard(c) {
+  return [
+    "BEGIN:VCARD",
+    "VERSION:3.0",
+    `FN:${c.name}`,
+    `TEL;TYPE=CELL:${c.phone}`,
+    c.email ? `EMAIL:${c.email}` : "",
+    `ORG:${c.org}`,
+    "END:VCARD"
+  ].filter(Boolean).join("\n");
+}
+
+function saveAllContacts() {
+  // Build combined vCard with all contacts
+  const allVCards = contacts.map(makeVCard).join("\n");
+
+  const blob = new Blob([allVCards], { type: "text/vcard" });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "Dynamic_TVS_Contacts.vcf";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+
+  // Show toast
+  const toast = document.getElementById("toast");
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 3000);
+}
+</script>
+</body>
+</html>
