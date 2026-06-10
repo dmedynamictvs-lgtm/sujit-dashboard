@@ -18,9 +18,7 @@
     --border: #e8e0ec;
     --shadow: 0 8px 32px rgba(123,45,139,0.13);
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   body {
     font-family: 'Noto Sans', sans-serif;
     background: #f4edf7;
@@ -29,7 +27,6 @@
     justify-content: center;
     align-items: flex-start;
   }
-
   .card {
     background: var(--white);
     width: 100%;
@@ -39,8 +36,6 @@
     box-shadow: var(--shadow);
     margin: 0 auto;
   }
-
-  /* Header Banner */
   .banner {
     width: 100%;
     height: 130px;
@@ -51,62 +46,32 @@
     align-items: flex-end;
     padding-bottom: 0;
   }
-
   .logo-circle {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
     background: var(--white);
     border-radius: 50%;
     border: 3px solid #f0e6f3;
     box-shadow: 0 4px 16px rgba(0,0,0,0.12);
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: absolute;
-    bottom: -40px;
+    bottom: -45px;
     left: 50%;
     transform: translateX(-50%);
     overflow: hidden;
   }
-
-  .logo-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-  }
-
-  .logo-text {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 9px;
-    font-weight: 700;
-    color: var(--blue);
-    letter-spacing: 1px;
-    line-height: 1;
-  }
-
-  .logo-horse {
-    font-size: 18px;
-    color: var(--red);
-    line-height: 1;
-  }
-
-  .logo-swoosh {
-    width: 60px;
-    height: 12px;
-    background: linear-gradient(90deg, var(--red) 0%, var(--blue) 100%);
+  .logo-circle img {
+    width: 92px;
+    height: 92px;
+    object-fit: cover;
     border-radius: 50%;
-    margin-top: 2px;
-    clip-path: ellipse(30px 7px at 50% 80%);
   }
-
-  /* Body */
   .body {
-    padding: 60px 24px 30px;
+    padding: 65px 24px 30px;
     text-align: center;
   }
-
   .label {
     font-size: 11px;
     font-weight: 600;
@@ -115,7 +80,6 @@
     text-transform: uppercase;
     margin-bottom: 4px;
   }
-
   .company-name {
     font-family: 'Rajdhani', sans-serif;
     font-size: 28px;
@@ -124,7 +88,6 @@
     letter-spacing: 1px;
     margin-bottom: 10px;
   }
-
   .tagline {
     font-size: 13.5px;
     color: #888;
@@ -132,8 +95,6 @@
     max-width: 280px;
     margin: 0 auto 22px;
   }
-
-  /* Add Contact Button */
   .btn-add {
     background: var(--purple);
     color: var(--white);
@@ -150,198 +111,63 @@
     display: inline-block;
     margin-bottom: 22px;
   }
-
-  .btn-add:hover {
-    background: var(--purple-mid);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(123,45,139,0.36);
-  }
-
-  .btn-add:active {
-    transform: scale(0.97);
-  }
-
-  /* Icons row */
+  .btn-add:hover { background: var(--purple-mid); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(123,45,139,0.36); }
+  .btn-add:active { transform: scale(0.97); }
   .icons-row {
     display: flex;
     justify-content: center;
     gap: 28px;
     margin-bottom: 24px;
   }
-
   .icon-btn {
-    width: 44px;
-    height: 44px;
+    width: 44px; height: 44px;
     border-radius: 50%;
     border: 1.5px solid var(--border);
     background: var(--purple-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     cursor: pointer;
     transition: background 0.2s, border 0.2s;
     text-decoration: none;
   }
-
-  .icon-btn:hover {
-    background: var(--purple);
-    border-color: var(--purple);
-  }
-
+  .icon-btn:hover { background: var(--purple); border-color: var(--purple); }
   .icon-btn:hover svg { stroke: white; }
-
-  .icon-btn svg {
-    width: 20px;
-    height: 20px;
-    stroke: var(--purple);
-    fill: none;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    transition: stroke 0.2s;
-  }
-
-  /* Contact List */
-  .contact-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: 0 0 10px;
-  }
-
-  .contact-group {
-    background: var(--white);
-    border: 1.5px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-  }
-
+  .icon-btn svg { width: 20px; height: 20px; stroke: var(--purple); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.2s; }
+  .contact-list { display: flex; flex-direction: column; gap: 10px; margin: 0 0 10px; }
+  .contact-group { background: var(--white); border: 1.5px solid var(--border); border-radius: 16px; overflow: hidden; }
   .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
+    display: flex; align-items: center; gap: 14px;
     padding: 14px 16px;
     border-bottom: 1px solid var(--border);
     cursor: pointer;
     transition: background 0.15s;
     text-decoration: none;
   }
-
-  .contact-item:last-child {
-    border-bottom: none;
-  }
-
-  .contact-item:hover {
-    background: var(--purple-light);
-  }
-
-  .contact-icon {
-    width: 40px;
-    height: 40px;
-    background: var(--purple-light);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .contact-icon svg {
-    width: 20px;
-    height: 20px;
-    stroke: var(--purple);
-    fill: none;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  .contact-info {
-    text-align: left;
-  }
-
-  .contact-role {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.8px;
-    color: var(--purple);
-    text-transform: uppercase;
-    margin-bottom: 2px;
-  }
-
-  .contact-number {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--text);
-    font-family: 'Rajdhani', sans-serif;
-    letter-spacing: 0.5px;
-  }
-
-  .contact-email {
-    font-size: 13px;
-    color: var(--text);
-  }
-
-  .contact-company {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text);
-  }
-
-  /* Toast */
-  .toast {
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%) translateY(80px);
-    background: var(--purple);
-    color: white;
-    padding: 12px 28px;
-    border-radius: 50px;
-    font-size: 14px;
-    font-weight: 600;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.2);
-    transition: transform 0.4s cubic-bezier(.34,1.56,.64,1), opacity 0.3s;
-    opacity: 0;
-    z-index: 999;
-    white-space: nowrap;
-  }
-
-  .toast.show {
-    transform: translateX(-50%) translateY(0);
-    opacity: 1;
-  }
-
-  @media (max-width: 480px) {
-    .card { border-radius: 0; min-height: 100vh; }
-    body { background: white; }
-  }
+  .contact-item:last-child { border-bottom: none; }
+  .contact-item:hover { background: var(--purple-light); }
+  .contact-icon { width: 40px; height: 40px; background: var(--purple-light); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .contact-icon svg { width: 20px; height: 20px; stroke: var(--purple); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .contact-info { text-align: left; }
+  .contact-role { font-size: 11px; font-weight: 600; letter-spacing: 0.8px; color: var(--purple); text-transform: uppercase; margin-bottom: 2px; }
+  .contact-number { font-size: 16px; font-weight: 600; color: var(--text); font-family: 'Rajdhani', sans-serif; letter-spacing: 0.5px; }
+  .contact-email { font-size: 13px; color: var(--text); }
+  .contact-company { font-size: 13px; font-weight: 600; color: var(--text); }
+  .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--purple); color: white; padding: 12px 28px; border-radius: 50px; font-size: 14px; font-weight: 600; box-shadow: 0 6px 24px rgba(0,0,0,0.2); transition: transform 0.4s cubic-bezier(.34,1.56,.64,1), opacity 0.3s; opacity: 0; z-index: 999; white-space: nowrap; }
+  .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+  @media (max-width: 480px) { .card { border-radius: 0; min-height: 100vh; } body { background: white; } }
 </style>
 </head>
 <body>
-
 <div class="card">
-  <!-- Colorful Banner -->
   <div class="banner">
     <div class="logo-circle">
-      <div class="logo-inner">
-        <span class="logo-horse">🐎</span>
-        <span class="logo-text">DYNAMIC TVS</span>
-        <div class="logo-swoosh"></div>
-      </div>
+      <img src="data:image/jpeg;base64,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" alt="Dynamic TVS Logo">
     </div>
   </div>
-
-  <!-- Body -->
   <div class="body">
     <p class="label">Service Centre</p>
     <h1 class="company-name">DYNAMIC TVS</h1>
     <p class="tagline">More than ten years of experience working for the most important companies</p>
-
-    <!-- Add Contact Button -->
     <button class="btn-add" onclick="saveAllContacts()">add contact</button>
-
-    <!-- Phone & Email icons -->
     <div class="icons-row">
       <a class="icon-btn" href="tel:7290047910" title="Call">
         <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 2.11 5.18 2 2 0 0 1 4.09 3h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 10.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -350,135 +176,59 @@
         <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
       </a>
     </div>
-
-    <!-- Contact List -->
     <div class="contact-list">
-      <!-- Phone contacts group -->
       <div class="contact-group">
         <a class="contact-item" href="tel:7290047910">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18" stroke-width="2"/></svg>
-          </div>
-          <div class="contact-info">
-            <div class="contact-role">TVS Service Advisor (Sujit)</div>
-            <div class="contact-number">7290047910</div>
-          </div>
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18" stroke-width="2"/></svg></div>
+          <div class="contact-info"><div class="contact-role">TVS Service Advisor (Sujit)</div><div class="contact-number">7290047910</div></div>
         </a>
         <a class="contact-item" href="tel:7042337745">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18" stroke-width="2"/></svg>
-          </div>
-          <div class="contact-info">
-            <div class="contact-role">CRM</div>
-            <div class="contact-number">7042337745</div>
-          </div>
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18" stroke-width="2"/></svg></div>
+          <div class="contact-info"><div class="contact-role">CRM</div><div class="contact-number">7042337745</div></div>
         </a>
         <a class="contact-item" href="tel:7290011222">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18" stroke-width="2"/></svg>
-          </div>
-          <div class="contact-info">
-            <div class="contact-role">Workshop Manager</div>
-            <div class="contact-number">7290011222</div>
-          </div>
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18" stroke-width="2"/></svg></div>
+          <div class="contact-info"><div class="contact-role">Workshop Manager</div><div class="contact-number">7290011222</div></div>
         </a>
         <a class="contact-item" href="tel:9582866060">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18" stroke-width="2"/></svg>
-          </div>
-          <div class="contact-info">
-            <div class="contact-role">GM</div>
-            <div class="contact-number">9582866060</div>
-          </div>
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18" stroke-width="2"/></svg></div>
+          <div class="contact-info"><div class="contact-role">GM</div><div class="contact-number">9582866060</div></div>
         </a>
       </div>
-
-      <!-- Email -->
       <div class="contact-group">
         <a class="contact-item" href="mailto:sm.dynamictvs@gmail.com">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
-          </div>
-          <div class="contact-info">
-            <div class="contact-role">Email</div>
-            <div class="contact-email">sm.dynamictvs@gmail.com</div>
-          </div>
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></div>
+          <div class="contact-info"><div class="contact-role">Email</div><div class="contact-email">sm.dynamictvs@gmail.com</div></div>
         </a>
       </div>
-
-      <!-- Company -->
       <div class="contact-group">
         <div class="contact-item" style="cursor:default;">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
-          </div>
-          <div class="contact-info">
-            <div class="contact-company">DYNAMIC MOTORS PVT LTD</div>
-          </div>
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+          <div class="contact-info"><div class="contact-company">DYNAMIC MOTORS PVT LTD</div></div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
 <div class="toast" id="toast">✅ Contacts saved to your phone!</div>
-
 <script>
 const contacts = [
-  {
-    name: "TVS Service Advisor Sujit",
-    phone: "7290047910",
-    email: "",
-    org: "Dynamic Motors Pvt Ltd"
-  },
-  {
-    name: "TVS CRM",
-    phone: "7042337745",
-    email: "",
-    org: "Dynamic Motors Pvt Ltd"
-  },
-  {
-    name: "TVS Workshop Manager",
-    phone: "7290011222",
-    email: "",
-    org: "Dynamic Motors Pvt Ltd"
-  },
-  {
-    name: "TVS GM Service",
-    phone: "9582866060",
-    email: "",
-    org: "Dynamic Motors Pvt Ltd"
-  }
+  { name: "TVS Service Advisor Sujit", phone: "7290047910", email: "", org: "Dynamic Motors Pvt Ltd" },
+  { name: "TVS CRM", phone: "7042337745", email: "", org: "Dynamic Motors Pvt Ltd" },
+  { name: "TVS Workshop Manager", phone: "7290011222", email: "", org: "Dynamic Motors Pvt Ltd" },
+  { name: "TVS GM Service", phone: "9582866060", email: "", org: "Dynamic Motors Pvt Ltd" }
 ];
-
 function makeVCard(c) {
-  return [
-    "BEGIN:VCARD",
-    "VERSION:3.0",
-    `FN:${c.name}`,
-    `TEL;TYPE=CELL:${c.phone}`,
-    c.email ? `EMAIL:${c.email}` : "",
-    `ORG:${c.org}`,
-    "END:VCARD"
-  ].filter(Boolean).join("\n");
+  return ["BEGIN:VCARD","VERSION:3.0",`FN:${c.name}`,`TEL;TYPE=CELL:${c.phone}`,c.email?`EMAIL:${c.email}`:"",`ORG:${c.org}`,"END:VCARD"].filter(Boolean).join("\n");
 }
-
 function saveAllContacts() {
-  // Build combined vCard with all contacts
   const allVCards = contacts.map(makeVCard).join("\n");
-
   const blob = new Blob([allVCards], { type: "text/vcard" });
   const url = URL.createObjectURL(blob);
-
   const a = document.createElement("a");
-  a.href = url;
-  a.download = "Dynamic_TVS_Contacts.vcf";
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-
-  // Show toast
+  a.href = url; a.download = "Dynamic_TVS_Contacts.vcf";
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(url);
   const toast = document.getElementById("toast");
   toast.classList.add("show");
   setTimeout(() => toast.classList.remove("show"), 3000);
